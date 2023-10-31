@@ -1,4 +1,4 @@
-
+#include "library.h"
 #include <iostream>
 #include "library.h"
 
@@ -7,10 +7,24 @@ using namespace std;
 void driver(int &choice);
 
 int main() {
+  
+  //library myLibrary;
+  /*
+
+  myLibrary.insert_sorted("Ulysses", "James Joyce");
+  myLibrary.insert_sorted("Don Quixote", "Miguel de Cervantes");
+  myLibrary.insert_sorted("One Hundred Years of Solitude", "Gabriel Garcia Marquez");
+  myLibrary.insert_sorted("The Great Gatsby", "F. Scott Fitzgerald");
+  myLibrary.insert_sorted("dododo", "F. Scott Fitzgerald");
+  myLibrary.print();
+  cout << myLibrary.find_author("F. Scott Fitzgerald");
+  */
   int choice=0;
   library lib;
   string in_library;
   string out_library;
+  lib.push_front("In Search of Lost Time", "Marcel Proust", 67, "tuiwtoeto", 35.00, 1985);
+  
   
   while(choice!=8){
     driver(choice);
@@ -56,7 +70,7 @@ int main() {
       cin>>last;
       cout<<"Enter number";
       cin>>number;
-      phone.insert_sorted(first, last, number);
+      lib.insert_sorted(first, last, number);
       cout<<"User added"<<endl;
     }
     
@@ -71,7 +85,6 @@ int main() {
       cout<<"Alright exiting. Have a Great Life:)"<<endl;
     }
   }
-  
   return 0;
 }
 
