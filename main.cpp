@@ -7,8 +7,8 @@ using namespace std;
 void driver(int &choice);
 
 int main() {
-  library myLibrary;
-  myLibrary.push_front("In Search of Lost Time", "Marcel Proust", 67, "tuiwtoeto", 35.00, 1985);
+  
+  //library myLibrary;
   /*
 
   myLibrary.insert_sorted("Ulysses", "James Joyce");
@@ -19,7 +19,71 @@ int main() {
   myLibrary.print();
   cout << myLibrary.find_author("F. Scott Fitzgerald");
   */
-  myLibrary.print();
+  int choice=0;
+  library lib;
+  string in_library;
+  string out_library;
+  lib.push_front("In Search of Lost Time", "Marcel Proust", 67, "tuiwtoeto", 35.00, 1985);
+  
+  
+  while(choice!=8){
+    driver(choice);
+    if(choice==1){
+      cout<<"Enter file to be read: ";
+      cin>>in_library;
+      lib.read_from_file(in_library);
+    }
+    if(choice==2){
+      cout<<"Enter file to write library to: ";
+      cin>>out_library;
+      lib.write_to_file(out_library);
+    }
+    if(choice==3){
+      cout<<"Printing library";
+      lib.print();
+    }
+    if(choice==4){
+      string AuthorName;
+      cout<<"Enter Author's name";
+      cin.get();
+      getline(cin, AuthorName);
+      cout<<"Searching"<<endl;
+      string AuthorWork=lib.find_author(AuthorName);
+      cout<<AuthorName<<" has written: "<<AuthorWork<<endl;
+    }
+    if(choice==5){
+      string AuthorName;
+      cout<<"Enter Author's name";
+      cin.get();
+      getline(cin, AuthorName);
+      cout<<"Searching"<<endl;
+      string AuthorWork=lib.find_album(AuthorName);
+      cout<<AuthorName<<"'s books and information"<<endl;
+      cout<< AuthorWork<<endl;
+    }
+    /*
+    if(choice==6){
+      string first, last, number;
+      cout<<"Enter first name";
+      cin>>first;
+      cout<<"Enter last name";
+      cin>>last;
+      cout<<"Enter number";
+      cin>>number;
+      lib.insert_sorted(first, last, number);
+      cout<<"User added"<<endl;
+    }
+    if(choice==7){
+      string AuthorName;
+      cout<<"Enter name of to be deleted Author";
+      cin>>AuthorName;
+      lib.Delete(AuthorName);
+    }
+    */
+    if(choice==8){
+      cout<<"Alright exiting. Have a Great Life:)"<<endl;
+    }
+  }
   return 0;
 }
 

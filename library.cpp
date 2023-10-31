@@ -37,9 +37,10 @@ void library::read_from_file(string filename){
   float Coverprice;
 
   while(inFile){
-    inFile>>Title>>AuthorName>>Pages>>isbn>>Coverprice>>Year;
-
-    //Comeback when insort done
+    getline(inFile, Title);
+    getline(inFile, AuthorName);
+    inFile >> Pages >> isbn >> Coverprice >> Year;
+    insert_sorted(Title, AuthorName, Pages, isbn, Coverprice, Year);
   }
 
   inFile.close();
@@ -52,15 +53,24 @@ void library::write_to_file(string filename){
   list<book>::iterator it;
 
   for(it = books.begin(); it != books.end(); it++){
-    outFile<<it->Title<<it->AuthorName<<it->Pages<<it->isbn<<it->Coverprice<<it->Year;
+    outFile << it -> Title << endl;
+    outFile << it -> AuthorName << endl;
+    outFile << it -> Pages << endl;
+    outFile << it -> isbn << endl;
+    outFile << it -> Coverprice << endl;
+    outFile << it -> Year << endl;
   }
   outFile.close();
 }
 
-void library::insert_sorted(string Title, string AuthorName){
+void library::insert_sorted(string Title, string AuthorName, int Pages, string isbn, float Coverprice, int Year){
   book temp;
   temp.Title = Title;
   temp.AuthorName = AuthorName;
+  temp.Pages = Pages;
+  temp.isbn = isbn;
+  temp.Coverprice = Coverprice;
+  temp.Year = Year;
   list<book>::iterator it;
   if(books.empty()){
     books.push_front(temp);
@@ -77,11 +87,19 @@ void library::insert_sorted(string Title, string AuthorName){
 string library::find_author(string AuthorName){
   string booksByThisAuthor = "";
   list<book>::iterator it;
+  if(books.empty()){
+    booksByThisAuthor = "This author could not be found.";
+    return booksByThisAuthor;
+  }
   for(it = books.begin(); it != books.end(); it++){
     if(it -> AuthorName == AuthorName){
       booksByThisAuthor += it->Title;
       booksByThisAuthor += " ";
     }
+  }
+  if(booksByThisAuthor == ""){
+    booksByThisAuthor = "This author could not be found.";
+    return booksByThisAuthor;
   }
   return booksByThisAuthor;
 }
