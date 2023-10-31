@@ -31,7 +31,8 @@ int main() {
     if(choice==4){
       string AuthorName;
       cout<<"Enter Author's name";
-      cin>>AuthorName;
+      cin.get();
+      getline(cin, AuthorName);
       cout<<"Searching"<<endl;
       string AuthorWork=lib.find_author(AuthorName);
       cout<<AuthorName<<" has written: "<<AuthorWork<<endl;
@@ -39,12 +40,14 @@ int main() {
     if(choice==5){
       string AuthorName;
       cout<<"Enter Author's name";
-      cin>>AuthorName;
+      cin.get();
+      getline(cin, AuthorName);
       cout<<"Searching"<<endl;
       string AuthorWork=lib.find_album(AuthorName);
       cout<<AuthorName<<"'s books and information"<<endl;
       cout<< AuthorWork<<endl;
     }
+    /*
     if(choice==6){
       string first, last, number;
       cout<<"Enter first name";
@@ -56,12 +59,14 @@ int main() {
       phone.insert_sorted(first, last, number);
       cout<<"User added"<<endl;
     }
+    
     if(choice==7){
       string AuthorName;
       cout<<"Enter name of to be deleted Author";
       cin>>AuthorName;
       lib.Delete(AuthorName);
     }
+    */
     if(choice==8){
       cout<<"Alright exiting. Have a Great Life:)"<<endl;
     }
