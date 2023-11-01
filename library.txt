@@ -1,29 +1,29 @@
 Good Book
-Author Good
+Good Author
 100
 1-000-10000-0
 100.00
 1000
 Terrible Book
-Author Terrible
+Terrible Author
 001
 0-111-01111-1
-00.01
+00.25
 0001
 Amazing Book
-Author Amazing
+Amazing Author
 1010
 1-010-10101-1
-1010.10
+1010.25
 1010
 Evil Book
-Author Evil
+Evil Author
 666
 6-666-66666-6
 666.66
 6666
 Luck Book
-Author Lucky
+Lucky Author
 777
 7-777-77777-7
 777.77
