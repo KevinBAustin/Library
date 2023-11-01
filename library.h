@@ -10,8 +10,6 @@ class library {
  private:
   std::list<book> books;
  public:
-
-  ~library();
   void push_front(std::string Title, std::string AuthorName, int Pages, std::string isbn, float Coverprice, int Year);
   void push_back(std::string Title, std::string AuthorName, int Pages, std::string isbn, float Coverprice, int Year);
   void read_from_file(std::string filename);
